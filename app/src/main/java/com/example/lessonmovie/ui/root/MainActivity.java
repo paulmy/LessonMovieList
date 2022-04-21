@@ -1,30 +1,21 @@
-package com.example.lessonmovie;
+package com.example.lessonmovie.ui.root;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.widget.Toast;
 
+import com.example.lessonmovie.App;
 import com.example.lessonmovie.databinding.ActivityMainBinding;
-import com.google.gson.FieldNamingPolicy;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.example.lessonmovie.dto.MovieList;
+import com.example.lessonmovie.dto.MovieModel;
+import com.example.lessonmovie.ui.movie.MovieActivity;
 
-import java.io.IOException;
 import java.util.List;
 
-import okhttp3.Cache;
-import okhttp3.HttpUrl;
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
@@ -35,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+adapter.setOnItemListener(item ->startActivity(MovieActivity.newIntent(this,item.id)) );
         binding.recycler.setAdapter(adapter);
         getDataFromNetwork();
 
@@ -60,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Invalid response. Error: " + t.getMessage(),
                     Toast.LENGTH_LONG).show();
             }
-        
+
     });
     }
     private void showError(int code) {

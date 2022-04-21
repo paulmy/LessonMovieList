@@ -1,18 +1,20 @@
-package com.example.lessonmovie;
+package com.example.lessonmovie.dto;
 
 import com.google.gson.annotations.SerializedName;
 
 public class MovieModel {
+    @SerializedName("id")
+    public long id;
     @SerializedName("poster_path")
-    private final String imageUrl;
+    public String imageUrl;
     @SerializedName("original_title")
-    private final String name;
+    public String name;
     @SerializedName("release_date")
-    private final String date;
+    public String date;
     @SerializedName("overview")
-    private final String description;
+    public String description;
 
-    public MovieModel(String imageUrl, String name, String date, String description) {
+    /*public MovieModel(String imageUrl, String name, String date, String description) {
         this.imageUrl = imageUrl;
         this.name = name;
         this.date = date;
@@ -34,4 +36,5 @@ public class MovieModel {
     public String getDescription() {
         return description;
     }
+*/
 }

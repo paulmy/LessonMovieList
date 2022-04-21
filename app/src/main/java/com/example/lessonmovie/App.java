@@ -2,11 +2,10 @@ package com.example.lessonmovie;
 
 import android.app.Application;
 
+import com.example.lessonmovie.net.MovieApi;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
-import java.util.List;
 
 import okhttp3.Cache;
 import okhttp3.HttpUrl;
