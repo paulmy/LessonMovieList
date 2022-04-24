@@ -3,6 +3,7 @@ package com.example.lessonmovie.ui.root;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.lessonmovie.App;
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-adapter.setOnItemListener(item ->startActivity(MovieActivity.newIntent(this,item.id)) );
+        adapter.setOnItemListener(item -> startActivity(MovieActivity.newIntent(this, item.id)));
         binding.recycler.setAdapter(adapter);
         getDataFromNetwork();
 
@@ -40,20 +41,20 @@ adapter.setOnItemListener(item ->startActivity(MovieActivity.newIntent(this,item
                 if (response.code() == 200) {
                     assert response.body() != null;
                     addToRecycler(response.body().results);
-                }
-                else
+                } else
                     showError(response.code());
             }
 
 
             @Override
             public void onFailure(Call<MovieList> call, Throwable t) {
-            Toast.makeText(MainActivity.this, "Invalid response. Error: " + t.getMessage(),
-                    Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Invalid response. Error: " + t.getMessage(),
+                        Toast.LENGTH_LONG).show();
             }
 
-    });
+        });
     }
+
     private void showError(int code) {
         Toast.makeText(MainActivity.this, "Invalid response. Code: " + code,
                 Toast.LENGTH_LONG).show();

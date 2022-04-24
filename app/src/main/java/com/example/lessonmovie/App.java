@@ -7,6 +7,8 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.util.Locale;
+
 import okhttp3.Cache;
 import okhttp3.HttpUrl;
 import okhttp3.Interceptor;
@@ -47,6 +49,7 @@ public class App extends Application {
                     .url()
                     .newBuilder()
                     .addQueryParameter("api_key", "2e774b038b2dc15a1db7397f1b6b63a7")
+                    .addQueryParameter("language", Locale.getDefault().toLanguageTag())// add
                     .build();
             return chain.proceed(request.newBuilder().url(newUrl).build());
         };

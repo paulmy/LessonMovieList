@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.lessonmovie.R;
 import com.example.lessonmovie.databinding.ItemBinding;
 import com.example.lessonmovie.dto.MovieModel;
 import com.squareup.picasso.Picasso;
@@ -57,6 +58,8 @@ public class MoveListAdapter extends RecyclerView.Adapter<MoveListAdapter.ViewHo
         public void bind(MovieModel item, OnItemClickListener listener) {
             Picasso.get()
                     .load("https://themoviedb.org/t/p/w300" + item.imageUrl)
+                    .placeholder(R.drawable.ic_download)
+                    .error(R.drawable.ic_error)
                     .into(binding.poster);
             //TODO: add image
 
@@ -67,6 +70,7 @@ public class MoveListAdapter extends RecyclerView.Adapter<MoveListAdapter.ViewHo
             setVisibleOrGone(binding.date, item.date);
             setVisibleOrGone(binding.name, item.name);
             setVisibleOrGone(binding.description, item.description);
+
         }
 
         private static void setVisibleOrGone(@NonNull View v, Object o) {

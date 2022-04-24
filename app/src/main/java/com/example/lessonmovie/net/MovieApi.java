@@ -5,6 +5,7 @@ import com.example.lessonmovie.dto.MovieList;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface MovieApi {
@@ -14,7 +15,7 @@ public interface MovieApi {
 
     @GET("movie/{id}")
     Call<MovieInfo> getMovie(
-            @Query("id") long id);
+            @Path("id") long id);
 /*
    @GET("movie/{id}")
 

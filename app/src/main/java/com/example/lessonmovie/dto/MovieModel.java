@@ -7,7 +7,7 @@ public class MovieModel {
     public long id;
     @SerializedName("poster_path")
     public String imageUrl;
-    @SerializedName("original_title")
+    @SerializedName("title")//replace original_title -> title
     public String name;
     @SerializedName("release_date")
     public String date;
