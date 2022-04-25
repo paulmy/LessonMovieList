@@ -107,6 +107,7 @@
                 tools:drawableStart="@drawable/ic_clock"
 
                 tools:text="@tools:sample/us_zipcodes" />
+
             <TextView
                 android:id="@+id/revenue"
                 android:layout_width="wrap_content"
@@ -120,7 +121,6 @@
                 tools:text="@tools:sample/us_zipcodes" />
 
 
-
             <TextView
                 android:id="@+id/vote"
                 android:layout_width="wrap_content"
@@ -131,6 +131,18 @@
                 app:drawableTint="@color/black"
                 tools:drawableStart="@drawable/ic_rate"
                 tools:text="@tools:sample/us_zipcodes" />
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:foreground="?selectableItemBackgroundBorderless"
+                app:tint="@color/white"
+                android:src="@drawable/ic_arrow_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </FrameLayout>

@@ -14,10 +14,10 @@ public class MovieInfo {
     @SerializedName("release_date")
     public String data;
     @SerializedName("runtime")
-    public long runtime;
+    public int runtime;
     @SerializedName("revenue")
     public String revenue;
-    @SerializedName("rating")
+    @SerializedName("vote_average")
     public float rating;
 
 }

@@ -13,6 +13,7 @@ import com.example.lessonmovie.R;
 import com.example.lessonmovie.databinding.ActivityMovieBinding;
 import com.example.lessonmovie.dto.MovieInfo;
 import com.example.lessonmovie.ui.root.MainActivity;
+import com.example.lessonmovie.utils.StringFormat;
 import com.squareup.picasso.Picasso;
 
 import retrofit2.Call;
@@ -62,8 +63,9 @@ public class MovieActivity extends AppCompatActivity {
         binding.name.setText(info.title);
         binding.date.setText(info.data);
         binding.description.setText(info.description);
-        binding.revenue.setText(info.revenue);
-        binding.runtime.setText(String.valueOf(info.runtime));//todo convert
+        //binding.revenue.setText(info.revenue);
+        binding.revenue.setText(StringFormat.formatMoney(getResources(), Integer.parseInt(info.revenue)));
+        binding.runtime.setText(StringFormat.formatTime(getResources(), info.runtime));//todo convert
         binding.vote.setText(String.valueOf(info.rating));
         Picasso.get()
                 .load("https://themoviedb.org/t/p/w300" + info.posterUrl)
@@ -80,6 +82,7 @@ public class MovieActivity extends AppCompatActivity {
 
         binding.loader.setVisibility(View.GONE);
         binding.content.setVisibility(View.VISIBLE);
+        binding.back.setOnClickListener(v -> finish());
     }
 
     public static Intent newIntent(Context context, long id) {
