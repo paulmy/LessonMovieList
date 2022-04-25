@@ -65,7 +65,7 @@ public class MovieActivity extends AppCompatActivity {
         binding.description.setText(info.description);
         //binding.revenue.setText(info.revenue);
         binding.revenue.setText(StringFormat.formatMoney(getResources(), Integer.parseInt(info.revenue)));
-        binding.runtime.setText(StringFormat.formatTime(getResources(), info.runtime));//todo convert
+        binding.runtime.setText(StringFormat.formatTime(getResources(), info.runtime));
         binding.vote.setText(String.valueOf(info.rating));
         Picasso.get()
                 .load("https://themoviedb.org/t/p/w300" + info.posterUrl)
